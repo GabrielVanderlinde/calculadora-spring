@@ -22,7 +22,7 @@ public class CalculadoraController {
     @PostMapping("/adicionar")
     public ResponseEntity<ResultadoDto> adicionar(@RequestBody EntradaDto dados) {
         //--Executando metodo de adicionar da classe service
-        ResultadoDto resultado = service.adicao(dados);
+        ResultadoDto resultado = service.adicionar(dados);
         //--Retorna resposta para Cliente
         return ResponseEntity.ok().body(resultado);
     }
@@ -30,7 +30,7 @@ public class CalculadoraController {
     @PostMapping("/subtrair")
     public ResponseEntity<ResultadoDto> subtrair(@RequestBody EntradaDto dados) {
         //--Executando metodo de subtrair da classe service
-        ResultadoDto resultado = service.subtracao(dados);
+        ResultadoDto resultado = service.subtrair(dados);
         //--Retorna resposta para Cliente
         return ResponseEntity.ok().body(resultado);
     }
@@ -39,7 +39,7 @@ public class CalculadoraController {
     @PostMapping("/multiplicar")
     public ResponseEntity<ResultadoDto> multiplicar(@RequestBody EntradaDto dados) {
         //--Executando metodo de multiplicar da classe service
-        ResultadoDto resultado = service.multiplicacao(dados);
+        ResultadoDto resultado = service.multiplicar(dados);
         //--Retorna resposta para Cliente
         return ResponseEntity.ok().body(resultado);
     }
@@ -47,7 +47,7 @@ public class CalculadoraController {
     @PostMapping("/dividir")
     public ResponseEntity<ResultadoDto> dividir(@RequestBody EntradaDto dados) {
         //--Executando metodo de dividir da classe service
-        ResultadoDto resultado = service.divisao(dados);
+        ResultadoDto resultado = service.dividir(dados);
         //--Retorna resposta para Cliente
         return ResponseEntity.ok().body(resultado);
     }

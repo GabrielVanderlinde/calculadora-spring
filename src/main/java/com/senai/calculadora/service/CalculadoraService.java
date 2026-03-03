@@ -7,14 +7,39 @@ import org.springframework.stereotype.Service;
 public class CalculadoraService {
 
     public ResultadoDto adicionar(EntradaDto dados) {
-        //--Inicializa Variaveis
         ResultadoDto resultadoDto = new ResultadoDto();
+        // Correção: Buscar dados do objeto 'dados'
+        resultadoDto.setNumero1(dados.getNumero1());
+        resultadoDto.setNumero2(dados.getNumero2());
+        resultadoDto.setResultado(dados.getNumero1() + dados.getNumero2());
+        return resultadoDto;
+    }
 
-        //--Processo
-        resultadoDto.setNumero1(resultadoDto.getNumero1());
-        resultadoDto.setNumero2(resultadoDto.getNumero2());
-        resultadoDto.setResultado();
-        //--Saída
+    public ResultadoDto subtrair(EntradaDto dados) {
+        ResultadoDto resultadoDto = new ResultadoDto();
+        resultadoDto.setNumero1(dados.getNumero1());
+        resultadoDto.setNumero2(dados.getNumero2());
+        resultadoDto.setResultado(dados.getNumero1() - dados.getNumero2());
+        return resultadoDto;
+    }
+
+    public ResultadoDto multiplicar(EntradaDto dados) {
+        ResultadoDto resultadoDto = new ResultadoDto();
+        resultadoDto.setNumero1(dados.getNumero1());
+        resultadoDto.setNumero2(dados.getNumero2());
+        resultadoDto.setResultado(dados.getNumero1() * dados.getNumero2());
+        return resultadoDto;
+    }
+
+    public ResultadoDto dividir(EntradaDto dados) {
+        if (dados.getNumero2() == 0) {
+            throw new ArithmeticException("Não é possível dividir por zero.");
+        }
+
+        ResultadoDto resultadoDto = new ResultadoDto();
+        resultadoDto.setNumero1(dados.getNumero1());
+        resultadoDto.setNumero2(dados.getNumero2());
+        resultadoDto.setResultado(dados.getNumero1() / dados.getNumero2());
         return resultadoDto;
     }
 }
